@@ -7,22 +7,41 @@ export default defineNuxtConfig({
   workspaceDir: '../../',
   srcDir: 'src',
   devtools: { enabled: true },
+
   devServer: {
     host: 'localhost',
     port: 4200,
   },
+
   typescript: {
     typeCheck: true,
     tsConfig: {
       extends: '../tsconfig.app.json', // Nuxt copies this string as-is to the `./.nuxt/tsconfig.json`, therefore it needs to be relative to that directory
     },
   },
+
   imports: {
     autoImport: true,
   },
+
   css: ['~/assets/css/styles.css'],
+
   vite: {
     plugins: [nxViteTsPaths()],
   },
-  modules: ['@nuxtjs/tailwindcss'],
+
+  modules:[
+    '@nuxt/eslint',
+    '@nuxt/fonts',
+    '@nuxt/icon',
+    '@nuxt/image',
+    '@nuxt/scripts',
+    '@nuxt/test-utils',
+    '@nuxt/ui',
+    '@nuxtjs/color-mode',
+    '@nuxtjs/seo',
+    '@formkit/auto-animate'
+  ],
+
+  compatibilityDate: '2025-03-21',
 });

@@ -27,6 +27,17 @@ export default [
           ],
         },
       ],
+      "vue/html-closing-bracket-newline": [
+    "error",
+    {
+      "singleline": "never",
+      "multiline": "never",
+      "selfClosingTag": {
+        "singleline": "never",
+        "multiline": "never"
+      }
+    }
+  ]
     },
   },
   {
