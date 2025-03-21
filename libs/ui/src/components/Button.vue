@@ -1,5 +1,5 @@
 <template>
-  <button class="ie-btn">
+  <button class="ie-btn text-white bg-red-500">
     <slot />
   </button>
 </template>
