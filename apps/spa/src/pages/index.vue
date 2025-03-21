@@ -5,7 +5,9 @@ import { IeButton } from '@ie/ui'
 
 <template>
   <div>
-    <h1>Home</h1>
+    <h1 class="text-3xl font-bold">
+      Home
+    </h1>
 
     <IeButton>
       test

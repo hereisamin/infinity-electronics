@@ -24,4 +24,5 @@ export default defineNuxtConfig({
   vite: {
     plugins: [nxViteTsPaths()],
   },
+  modules: ['@nuxtjs/tailwindcss'],
 });
