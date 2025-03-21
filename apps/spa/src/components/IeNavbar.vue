@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { useCartStore } from '@spa/store/cart'
+
+const cartStore = useCartStore()
+const cartCount = computed(() => cartStore.cartCount)
+const isOpen = ref(false)
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Products', href: '/products' },
+  { label: 'About Us', href: '/about' }
+]
+</script>
+
 <template>
   <nav class="bg-background text-text border-b border-secondary">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,7 +51,7 @@
               name="heroicons:shopping-cart"
               class="text-2xl h-6 w-6 inline-block" />
             <span class="absolute top-1 right-0 transform translate-x-1/2 -translate-y-1/2 text-xs bg-red-600 text-white px-1.5 py-0.5 rounded-full">
-              {{ 5 }}
+              {{ cartCount }}
             </span>
           </NuxtLink>
 
@@ -86,7 +100,7 @@
           to="/cart"
           class="block px-3 py-2 rounded-md text-base font-medium hover:bg-secondary hover:text-primary"
           @click="isOpen = false">
-          Cart ({{ 5 }})
+          Cart ({{ cartCount }})
         </NuxtLink>
       </div>
 
@@ -98,13 +112,3 @@
     </div>
   </nav>
 </template>
-
-  <script setup lang="ts">
-  const isOpen = ref(false)
-
-  const navLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'Products', href: '/products' },
-    { label: 'About Us', href: '/about' }
-  ]
-  </script>

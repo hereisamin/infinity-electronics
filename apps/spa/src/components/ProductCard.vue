@@ -27,6 +27,11 @@ defineProps<{
       </p>
       <span>Rating: ${{ product.rating.rate }}/5</span>
       <span class="font-bold text-lg">Price: ${{ product.price }}</span>
+      <NuxtLink
+        :to="`/products/${product.id}`"
+        class="text-primary hover:underline">
+        View Details
+      </NuxtLink>
     </div>
   </div>
 </template>

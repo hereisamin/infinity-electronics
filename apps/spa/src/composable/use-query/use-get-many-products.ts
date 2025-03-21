@@ -1,10 +1,10 @@
 import { useInfiniteQuery, type QueryFunctionContext } from '@tanstack/vue-query'
-import { Product } from "../../types/api.type"
+import { Product } from "@spa/types/api.type"
 import { manyProductsQueryKeys } from './'
 import { AxiosResponse } from 'axios'
 import { UnwrapRef } from 'vue'
-import { http } from '../../services/http'
-import { LOAD_PAGE_SIZE } from '../../constants'
+import { http } from '@spa/services/http'
+import { LOAD_PAGE_SIZE } from '@spa/constants'
 
 type ProductQuickSearchQueryContext = QueryFunctionContext<UnwrapRef<typeof manyProductsQueryKeys['all']>, number>
 

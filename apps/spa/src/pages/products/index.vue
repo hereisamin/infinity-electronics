@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { IeError, IeLoading } from '@ie/ui'
-import { useGetManyProducts } from '../composable/use-query'
+import { useGetManyProducts } from '../../composable/use-query'
 
 const {
   data,
