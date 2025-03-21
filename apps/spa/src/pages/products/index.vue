@@ -63,6 +63,17 @@ function generateId() {
   const randomPart = Math.random().toString(36).substring(2)
   return timestampPart + randomPart
 }
+
+useHead({
+  title: 'Products',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Discover top-rated electronics, accessories, and more at InfinityElectronics. Enjoy a fast and secure shopping experience, from the latest gadgets to everyday essentials.'
+    }
+  ]
+})
 </script>
 
 <template>

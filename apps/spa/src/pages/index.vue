@@ -30,6 +30,17 @@ const shuffledProducts = computed(() => {
   if (!products.value) return []
   return products.value.sort(() => Math.random() - 0.5)
 })
+
+useHead({
+  title: 'InfinityElectronics – Your One-Stop Shop for Cutting-Edge Tech',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Discover top-rated electronics, accessories, and more at InfinityElectronics. Enjoy a fast and secure shopping experience, from the latest gadgets to everyday essentials.'
+    }
+  ]
+})
 </script>
 
 <template>

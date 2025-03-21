@@ -15,6 +15,17 @@ function removeItem(productId: number) {
 function clearCart() {
   cartStore.clearCart()
 }
+
+useHead({
+  title: 'Cart',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Discover top-rated electronics, accessories, and more at InfinityElectronics. Enjoy a fast and secure shopping experience, from the latest gadgets to everyday essentials.'
+    }
+  ]
+})
 </script>
 
 <template>

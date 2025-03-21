@@ -31,6 +31,16 @@ function addToCart() {
     qty
   )
 }
+
+useHead({
+  title: product.value?.title,
+  meta: [
+    {
+      name: 'description',
+      content: product.value?.description
+    }
+  ]
+})
 </script>
 
 <template>
