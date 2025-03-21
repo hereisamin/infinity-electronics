@@ -38,6 +38,7 @@
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
     "@tailwindcss/vite": "^4.0.14",
+    "@tanstack/vue-query": "^5.69.0",
     "@types/node": "18.16.9",
     "@unhead/vue": "^2.0.0-rc.8",
     "@vitejs/plugin-vue": "^4.5.0",

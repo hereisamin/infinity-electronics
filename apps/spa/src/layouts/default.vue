@@ -1,6 +1,8 @@
 <template>
   <div class="fixed inset-0 bg-background text-text">
     <IeNavbar />
-    <slot />
+    <div class="h-full overflow-auto pb-20">
+      <slot />
+    </div>
   </div>
 </template>
