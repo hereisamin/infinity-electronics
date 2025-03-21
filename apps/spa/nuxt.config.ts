@@ -40,7 +40,8 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/color-mode',
     '@nuxtjs/seo',
-    '@formkit/auto-animate'
+    '@formkit/auto-animate',
+    '@vueuse/nuxt'
   ],
 
   compatibilityDate: '2025-03-21',
