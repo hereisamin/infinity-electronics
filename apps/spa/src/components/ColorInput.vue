@@ -26,7 +26,7 @@ const colorMode = useColorMode()
           @click="colorMode.preference = theme" />
       </li>
     </ul>
-    <p>
+    <p class="text-text">
       <ColorScheme
         placeholder="..."
         tag="span">

@@ -4,7 +4,7 @@ import { IeButton } from '@ie/ui'
 </script>
 
 <template>
-  <div class="bg-gray-100 dark:bg-gray-900">
+  <div class="bg-background">
     <ColorInput />
     <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
       Home
