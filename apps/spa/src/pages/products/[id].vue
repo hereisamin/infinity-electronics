@@ -25,7 +25,8 @@ function addToCart() {
     {
       id: product.value.id,
       title: product.value.title,
-      price: product.value.price
+      price: product.value.price,
+      image: product.value.image
     },
     qty
   )
@@ -105,7 +106,7 @@ function addToCart() {
             min="1">
         </div>
         <button
-          class="bg-primary text-white px-6 py-3 rounded hover:bg-opacity-90 transition-colors"
+          class="bg-primary text-white px-6 py-3 rounded hover:bg-opacity-90 transition-colors cursor-pointer"
           @click="addToCart">
           Add to Cart
         </button>
