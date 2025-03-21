@@ -1,82 +1,125 @@
-# Ie
+# InfinityElectronics Workspace
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer">
+  <img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"/>
+</a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+Welcome to your new **Nx monorepo**! This repository houses the InfinityElectronics frontend apps, libraries, and tooling for a streamlined, scalable workflow.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/nuxt?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## Getting Started
 
-## Finish your CI setup
+1. **Install pnpm (if you haven’t yet)**  
+   We recommend using `pnpm` for faster, more consistent dependency installation.  
+   ```bash
+   npm install -g pnpm
+   ```
+   Or visit the [pnpm docs](https://pnpm.io/installation) for alternative install methods.
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/YJLXhRYNjI)
+2. **Install dependencies**  
+   In the root of your repository, run:
+   ```bash
+   pnpm install
+   ```
+   This will install all required packages for every project in this Nx workspace.
 
+3. **Explore the workspace**  
+   Check out the Nx docs specific to [Nuxt integrations](https://nx.dev/nx-api/nuxt?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects), or run:
+   ```bash
+   pnpx nx graph
+   ```
+   This visually explores the structure and dependencies of your projects.
 
-## Run tasks
+---
 
-To run the dev server for your app, use:
+## Running Your App
 
-```sh
-npx nx serve spa
+To start a local dev server for your main SPA (Nuxt 3) app:
+
+```bash
+pnpx nx serve spa
 ```
 
-To create a production bundle:
+## Building for Production
 
-```sh
-npx nx build spa
+```bash
+pnpx nx build spa
 ```
 
-To see all available targets to run for a project, run:
+## Other Project Tasks
 
-```sh
-npx nx show project spa
+List all available targets for the `spa` project:
+
+```bash
+pnpx nx show project spa
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+These tasks (build, serve, test, etc.) are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined within `project.json` / `package.json`.
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+[More about running Nx tasks &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-## Add new projects
+---
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+## Adding New Projects
 
-Use the plugin's generator to create new projects.
+You can add more applications or libraries using Nx generators. For example:
 
-To generate a new application, use:
-
-```sh
-npx nx g @nx/nuxt:app demo
+```bash
+pnpx nx g @nx/nuxt:app demo
 ```
+Creates a new Nuxt-based app named `demo`.
 
-To generate a new library, use:
-
-```sh
-npx nx g @nx/vue:lib mylib
+```bash
+pnpx nx g @nx/vue:lib mylib
 ```
+Generates a Vue library named `mylib`.
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+Use `pnpx nx list` to see all installed plugins, and `pnpx nx list <plugin-name>` for more details about a specific plugin. Alternatively, install [Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to explore generators within your IDE.
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+[More about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
+---
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Nx in CI
 
-## Install Nx Console
+Learn how to set up Nx with your favorite CI provider:
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+- [Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+And if you haven’t finished your CI setup, you can:
 
-## Useful links
+[Click here to finalize your Nx Cloud connection &raquo;](https://cloud.nx.app/connect/YJLXhRYNjI)
 
-Learn more:
+---
 
-- [Learn more about this workspace setup](https://nx.dev/nx-api/nuxt?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Nx Console
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+[Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) is an IDE extension for VSCode or JetBrains that:
+
+- Runs tasks
+- Generates code
+- Provides IntelliSense for Nx commands
+
+It’s highly recommended to install for a better developer experience.
+
+---
+
+## Useful Links
+
+- **Nx + Nuxt**:  
+  [Setup details &raquo;](https://nx.dev/nx-api/nuxt?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+  
+- **Nx on CI**:  
+  [Intro to Nx in CI &raquo;](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+  
+- **Releasing Packages**:  
+  [Using Nx release &raquo;](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+  
+- **Nx Plugins**:  
+  [What are Nx plugins? &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+Join the Nx community:
+
+- [Nx Discord](https://go.nx.dev/community)  
+- [Follow Nx on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)  
+- [YouTube Channel](https://www.youtube.com/@nxdevtools)  
+- [Nx Blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
