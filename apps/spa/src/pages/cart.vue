@@ -50,14 +50,10 @@ function clearCart() {
           :key="item.productId"
           class="border border-secondary rounded p-4 bg-white dark:bg-black dark:border-gray-700 flex items-start gap-4">
           <div class="w-20 h-20 flex-shrink-0 overflow-hidden">
-            <img
-              v-if="item.image"
+            <NuxtImg
               :src="item.image"
               :alt="item.title"
-              class="w-full h-full object-cover">
-            <div
-              v-else
-              class="w-full h-full bg-gray-200 dark:bg-gray-700" />
+              class="w-full h-full object-cover" />
           </div>
 
           <!-- Info -->

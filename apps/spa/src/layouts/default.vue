@@ -3,6 +3,7 @@
     <IeNavbar />
     <div class="h-full overflow-auto pb-20">
       <slot />
+      <LayoutFooter />
     </div>
   </div>
 </template>

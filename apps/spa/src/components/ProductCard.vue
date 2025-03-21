@@ -11,10 +11,10 @@ defineProps<{
   <div class="w-72 h-96 bg-background border border-gray-200 rounded-lg overflow-hidden shadow-md flex flex-col">
     <!-- Image Container -->
     <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
-      <img
+      <NuxtImg
         class="w-full h-full object-cover"
         :src="product.image"
-        :alt="product.title">
+        :alt="product.title" />
     </div>
 
     <!-- Details -->

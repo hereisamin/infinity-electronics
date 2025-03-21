@@ -68,10 +68,10 @@ function addToCart() {
       <!-- Left: Product Image (or gallery) -->
       <div class="flex-1">
         <div class="aspect-w-1 aspect-h-1 mb-4">
-          <img
+          <NuxtImg
             :src="product.image"
             :alt="product.title"
-            class="w-full h-full object-cover">
+            class="w-full h-full object-cover" />
         </div>
       </div>
 
