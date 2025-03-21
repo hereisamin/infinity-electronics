@@ -1,15 +1,9 @@
-import baseConfig from '../../eslint.config.mjs';
 import vue from 'eslint-plugin-vue';
+import baseConfig from '../../eslint.config.mjs';
 
 export default [
   ...baseConfig,
   ...vue.configs['flat/recommended'],
-  {
-    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx', '**/*.vue'],
-    rules: {
-      'vue/multi-word-component-names': 'off'
-    },
-  },
   {
     files: ['**/*.vue'],
     languageOptions: {
@@ -19,6 +13,9 @@ export default [
     },
   },
   {
-    ignores: ['.nuxt/**', '.output/**', 'node_modules'],
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx', '**/*.vue'],
+    rules: {
+      'vue/multi-word-component-names': 'off',
+    },
   },
 ];

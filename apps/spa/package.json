@@ -4,5 +4,8 @@
   "private": true,
   "nx": {
     "name": "spa"
+  },
+  "dependencies": {
+    "@ie/ui": "workspace:*"
   }
 }
