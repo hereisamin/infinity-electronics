@@ -1,4 +1,13 @@
-# InfinityElectronics Workspace
+# Infinity Electronics Workspace
+## Live Demo
+
+A deployed version of this project is available at:
+
+[https://infinity.wewebdo.com/](https://infinity.wewebdo.com/)
+
+Feel free to explore the features (home, products, cart, etc.) and experience the overall user journey.
+---
+
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer">
   <img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"/>
