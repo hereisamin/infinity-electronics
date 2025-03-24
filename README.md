@@ -1,13 +1,15 @@
 # Infinity Electronics Workspace
-## Live Demo
+## 🚀 Live Demo
 
 A deployed version of this project is available at:
 
-[https://infinity.wewebdo.com/](https://infinity.wewebdo.com/)
+🔗 [https://infinity.wewebdo.com/](https://infinity.wewebdo.com/)
 
-Feel free to explore the features (home, products, cart, etc.) and experience the overall user journey.
+Feel free to explore the features (Home, Products, Cart, etc.) and experience the overall user journey.
+
+> ⚠️ **Note:** The live demo is currently based on the latest refactored components using the Single Responsibility and DRY principles, which are implemented in the [`refactor/components/use-single-responsibility-and-dry`](https://github.com/hereisamin/infinity-electronics/tree/refactor/components/use-single-responsibility-and-dry) branch.
+
 ---
-
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer">
   <img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"/>
