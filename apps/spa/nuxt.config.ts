@@ -4,6 +4,9 @@ import { defineNuxtConfig } from 'nuxt/config';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
+  nitro: {
+    preset: 'static',
+  },
   workspaceDir: '../../',
   srcDir: 'src',
   devtools: { enabled: true },
@@ -35,8 +38,6 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/image',
-    '@nuxt/scripts',
-    '@nuxt/test-utils',
     '@nuxt/ui',
     '@nuxtjs/color-mode',
     '@nuxtjs/seo',

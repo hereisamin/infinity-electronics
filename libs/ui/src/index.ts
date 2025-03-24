@@ -1,3 +1,5 @@
-export { default as IeButton } from './components/Button.vue'
-export { default as IeLoading } from './components/Loading.vue'
-export { default as IeError } from './components/Error.vue'
+export { default as IeButton } from './components/base/Button.vue'
+export { default as IeLoading } from './components/feedback/Loading.vue'
+export { default as IeError } from './components/feedback/Error.vue'
+export { default as ImageSlider } from './components/base/ImageSlider.vue'
+export { default as Card } from './components/base/Card.vue'
