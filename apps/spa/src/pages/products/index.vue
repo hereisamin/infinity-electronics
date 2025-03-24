@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { IeError, IeLoading } from '@ie/ui'
 import { useGetManyProducts } from '../../composable/use-query'
+import { useProductFilters } from '../../composable/use-product-filters'
 
 const {
   data,
@@ -14,48 +15,24 @@ const {
 
 const products = computed(() => data.value?.pages.flatMap((page) => page.data) ?? [])
 
-const selectedCategory = ref('All')
-const sortBy = ref('price-asc')
-const searchText = ref('')
+// Initialize filters from query parameters
+const route = useRoute()
+const {
+  selectedCategory,
+  searchText,
+  sortBy,
+  categories,
+  filteredProducts,
+  initializeFilters
+} = useProductFilters(products)
 
-// Extract categories from the data once it arrives
-const categories = computed(() => {
-  if (!products.value) return []
-  const uniqueCats = new Set(products.value.map((p) => p.category))
-  return ['All', ...Array.from(uniqueCats)]
-})
-
-const filteredProducts = computed(() => {
-  if (!products.value) return []
-
-  // Category Filter
-  let result = selectedCategory.value === 'All'
-    ? [...products.value]
-    : products.value.filter((p) => p.category === selectedCategory.value)
-
-  // Text Search TODO: use fuse library
-  const text = searchText.value.toLowerCase().trim()
-  if (text) {
-    result = result.filter((p) => {
-      return (
-        p.title.toLowerCase().includes(text) ||
-        p.description.toLowerCase().includes(text)
-      )
-    })
-  }
-
-  // Sorting TODO: bring it out to utils
-  if (sortBy.value === 'price-asc') {
-    result.sort((a, b) => a.price - b.price)
-  } else if (sortBy.value === 'price-desc') {
-    result.sort((a, b) => b.price - a.price)
-  } else if (sortBy.value === 'rating-desc') {
-    result.sort((a, b) => b.rating.rate - a.rating.rate)
-  } else if (sortBy.value === 'rating-asc') {
-    result.sort((a, b) => a.rating.rate - b.rating.rate)
-  }
-
-  return result
+// Initialize filters from URL query parameters
+onMounted(() => {
+  initializeFilters({
+    category: route.query.cat as string,
+    search: route.query.search as string,
+    sortBy: route.query.sort as string
+  })
 })
 
 function generateId() {
@@ -74,6 +51,8 @@ useHead({
     }
   ]
 })
+
+const [productsWrapper] = useAutoAnimate()
 </script>
 
 <template>
@@ -101,61 +80,15 @@ useHead({
     </IeError>
 
     <div v-if="data">
-      <!-- Filters & Sorting TODO: move to new component -->
-      <div class="flex flex-col md:flex-row md:items-end gap-4 mb-6">
-        <!-- Search -->
-        <div class="flex-1">
-          <label class="block text-sm font-medium mb-1">
-            Search
-          </label>
-          <input
-            v-model="searchText"
-            type="text"
-            placeholder="Search by title or description"
-            class="border border-gray-300 px-3 py-2 w-full rounded focus:outline-none focus:ring-1 focus:ring-primary">
-        </div>
-        <!-- Category Filter -->
-        <div>
-          <label class="block text-sm font-medium mb-1">
-            Category
-          </label>
-          <select
-            v-model="selectedCategory"
-            class="border border-gray-300 px-3 py-2 h-10 rounded focus:outline-none focus:ring-1 focus:ring-primary">
-            <option
-              v-for="cat in categories"
-              :key="cat"
-              :value="cat">
-              {{ cat }}
-            </option>
-          </select>
-        </div>
+      <ProductFilters
+        v-model:selected-category="selectedCategory"
+        v-model:search-text="searchText"
+        v-model:sort-by="sortBy"
+        :categories="categories" />
 
-        <!-- Sort Select -->
-        <div>
-          <label class="block text-sm font-medium mb-1">
-            Sort By
-          </label>
-          <select
-            v-model="sortBy"
-            class="border border-gray-300 h-10 px-3 py-2 rounded focus:outline-none focus:ring-1 focus:ring-primary">
-            <option value="price-asc">
-              Price: Low to High
-            </option>
-            <option value="price-desc">
-              Price: High to Low
-            </option>
-            <option value="rating-desc">
-              Rating: High to Low
-            </option>
-            <option value="rating-asc">
-              Rating: Low to High
-            </option>
-          </select>
-        </div>
-      </div>
-
-      <div class="flex flex-wrap gap-6 justify-center">
+      <div
+        ref="productsWrapper"
+        class="flex flex-wrap gap-6 justify-center">
         <ProductCard
           v-for="product in filteredProducts"
           :key="generateId() + product.id"

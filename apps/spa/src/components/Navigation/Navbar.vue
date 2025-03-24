@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { useCartStore } from '@spa/store/cart'
-
-const cartStore = useCartStore()
-const cartCount = computed(() => cartStore.cartCount)
 const isOpen = ref(false)
 
 const navLinks = [
@@ -33,28 +29,12 @@ const navLinks = [
 
         <!-- Desktop Nav Links -->
         <div class="hidden md:ml-6 md:flex md:items-center md:space-x-4">
-          <NuxtLink
-            v-for="(link, idx) in navLinks"
-            :key="idx"
-            :to="link.href"
-            class="px-3 py-2 rounded-md text-sm font-medium hover:bg-secondary hover:text-primary">
-            {{ link.label }}
-          </NuxtLink>
+          <NavigationLinks :links="navLinks" />
         </div>
 
         <!-- Right Section: Theme Picker & Cart -->
         <div class="hidden md:flex md:items-center md:space-x-4">
-          <NuxtLink
-            to="/cart"
-            class="relative px-3 py-2 rounded-md text-sm font-medium hover:bg-secondary hover:text-primary">
-            <Icon
-              name="heroicons:shopping-cart"
-              class="text-2xl h-6 w-6 inline-block" />
-            <span class="absolute top-1 right-0 transform translate-x-1/2 -translate-y-1/2 text-xs bg-red-600 text-white px-1.5 py-0.5 rounded-full">
-              {{ cartCount }}
-            </span>
-          </NuxtLink>
-
+          <NavigationCartButton />
           <ColorInput />
         </div>
 
@@ -84,30 +64,16 @@ const navLinks = [
       class="md:hidden border-t border-secondary">
       <!-- Mobile Nav Links -->
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <NuxtLink
-          v-for="(link, idx) in navLinks"
-          :key="idx"
-          :to="link.href"
-          class="block px-3 py-2 rounded-md text-base font-medium hover:bg-secondary hover:text-primary"
-          @click="isOpen = false">
-          {{ link.label }}
-        </NuxtLink>
+        <NavigationLinks
+          :links="navLinks"
+          :is-mobile="true"
+          :on-link-click="() => isOpen = false" />
       </div>
 
-      <!-- Mobile Theme Picker (ColorInput) & Cart Link -->
-      <div class="px-2 py-2 border-t border-secondary space-y-1">
-        <NuxtLink
-          to="/cart"
-          class="block px-3 py-2 rounded-md text-base font-medium hover:bg-secondary hover:text-primary"
-          @click="isOpen = false">
-          Cart ({{ cartCount }})
-        </NuxtLink>
-      </div>
-
-      <div
-        class="flex items-center"
-        @click="isOpen = false">
-        <ColorInput />
+      <!-- Mobile Theme Picker & Cart Link -->
+      <div class="flex justify-between px-2 py-2 border-t border-secondary space-y-1">
+        <NavigationCartButton @click="() => isOpen = false" />
+        <ColorInput @close="isOpen = false" />
       </div>
     </div>
   </nav>

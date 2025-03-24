@@ -22,10 +22,12 @@ function iconName(theme: string) {
   return 'ph:question'
 }
 
+const emit = defineEmits(['close'])
 
 function setTheme(theme: string) {
   colorMode.preference = theme
   isOpen.value = false
+  emit('close')
 }
 
 

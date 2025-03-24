@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useCartStore } from '@spa/store/cart'
+import { IeError, IeLoading } from '@ie/ui'
 import { useGetOneProduct } from '../../composable/use-query'
 
 const route = useRoute()
@@ -9,7 +10,8 @@ const {
   data,
   isLoading,
   isError,
-  error
+  error,
+  refetch
 } = useGetOneProduct({ id: productId })
 
 const product = computed(() => data.value?.data)
@@ -45,32 +47,21 @@ useHead({
 
 <template>
   <div class="min-h-screen bg-background text-text px-4 sm:px-6 lg:px-8 py-8">
-    <div
-      v-if="isLoading"
-      class="flex flex-col items-center justify-center py-8">
-      <div class="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4" />
-      <p class="text-lg font-semibold">
-        Loading product details...
-      </p>
-    </div>
+    <IeLoading v-if="isLoading">
+      Loading ...
+    </IeLoading>
 
-    <div
+    <IeError
       v-else-if="isError"
-      class="max-w-md mx-auto bg-red-50 border border-red-200 p-6 rounded-md flex items-start gap-4">
-      <div class="text-red-600">
+      @retry="refetch">
+      <template #button>
         <Icon
-          name="ph:warning-circle-bold"
-          class="w-8 h-8" />
-      </div>
-      <div>
-        <h3 class="text-red-700 font-bold mb-1">
-          Oops! Something went wrong
-        </h3>
-        <p class="text-sm text-red-600">
-          {{ (error as Error)?.message }}
-        </p>
-      </div>
-    </div>
+          name="ph:arrow-counter-clockwise-bold"
+          class="mr-2" />
+        Try Again
+      </template>
+      Error: {{ (error as Error)?.message }}
+    </IeError>
 
     <div
       v-else-if="product"
