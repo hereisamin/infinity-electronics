@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { IeError, IeLoading } from '@ie/ui'
-import { Product } from '../types/api.type'
+import { Product } from '@spa/types/api.type'
 import { useGetManyProducts } from '../composable/use-query'
 
 const { data, isLoading, isError, error, refetch } = useGetManyProducts()
@@ -63,7 +63,7 @@ useHead({
 
     <!-- Success -->
     <div v-if="data">
-      <Hero :products="shuffledProducts.slice(0, 5)" />
+      <HeroSection :products="shuffledProducts.slice(0, 5)" />
 
       <CategoryGrid
         :categories="categories"
